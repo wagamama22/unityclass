@@ -31,8 +31,14 @@ public class Box : MonoBehaviour
             Debug.Log("Current rotation speed: " + rotationSpeed);
         }
 
+        if (rotationSpeed <= 5f && rotationSpeed >= 300f) 
+        {
+            transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+        }
+        
+
         // Rotate the object around the y-axis (up vector) at the specified speed
         // Multiply by Time.deltaTime to make the rotation frame-rate independent
-        transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+        transform.Rotate(0f, 0f, 0f);
     }
 }
