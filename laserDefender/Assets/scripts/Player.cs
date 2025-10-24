@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +11,15 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxX = 4.32f;
     [SerializeField] private float minY = -8.47f;
     [SerializeField] private float maxY = 8.52f;
+
+    [SerializeField] GameObject laserPrefab;//specified we need a laser prefab
+
+    //create a variable of coroutine of type ienumerator
+    IEnumerator shootingCoroutine;
+
+    float extraY = 0.45f;
+    Vector2 playerPosition;
+
     // Get the main camera/ declaring the camera variable
     Camera mainCamera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,6 +27,9 @@ public class Player : MonoBehaviour
     {
         // Get the main camera
         mainCamera = Camera.main;
+
+        //save the couroutine inside this variable
+        shootingCoroutine = ShootContinuosly();
 
         //write a method that makes the player move on the x and y axis using the arrow keys and the unity old input system
         //update the code so that the player ship uses screen wrapping
@@ -110,8 +124,38 @@ public class Player : MonoBehaviour
         Vector2 movement = new Vector2(moveX, moveY) * speed * Time.deltaTime;
 
         // Apply the movement to the player 's transform'
+       
         transform.Translate(movement);//transform has to do with position of gameobject while translate renders the transform action.
+        
+    }
 
+    void ShootLaser() 
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            StartCoroutine(shootingCoroutine);
+        }
+
+        if(Input.GetButtonUp("Fire1")) 
+        {
+            StopCoroutine(shootingCoroutine);
+        }
+    }   
+
+    //create coroutine
+    IEnumerator ShootContinuosly() 
+    {
+        while (true)//loop untill we stop the coroutine 
+        {
+            playerPosition = transform.position;//saving the position of the player in a variable
+            playerPosition.y += extraY;//shhot from the tip
+            //instantiate the laser prefab at the player position wit no rotation
+            GameObject laser = Instantiate(laserPrefab, playerPosition, Quaternion.identity); //save to a variable of gameobject
+            laser.GetComponent<Rigidbody2D>().linearVelocityY = 10f;
+
+            //wait for o.2 seconds before shooting again
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     // Update is called once per frame
@@ -122,5 +166,7 @@ public class Player : MonoBehaviour
        Move();
        //screenoundaryHardCode();
        WrapPlayer();
+       ShootLaser();
+        
     }
 }
