@@ -342,6 +342,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6410961074656111461, guid: 1b5d8d7d6a997514a9e1116e181858d1, type: 3}
+      propertyPath: waypointsList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410961074656111461, guid: 1b5d8d7d6a997514a9e1116e181858d1, type: 3}
+      propertyPath: 'waypointsList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4471673838605705498, guid: b57ba3429374a314a8ad68eeaa8eaa47, type: 3}
+    - target: {fileID: 6410961074656111461, guid: 1b5d8d7d6a997514a9e1116e181858d1, type: 3}
+      propertyPath: 'waypointsList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8429858003448497685, guid: fefe061e55ea0cd4e8bbf57818aaa221, type: 3}
+    - target: {fileID: 6410961074656111461, guid: 1b5d8d7d6a997514a9e1116e181858d1, type: 3}
+      propertyPath: 'waypointsList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2811225069906465911, guid: 9ff2e1f990a33f548a152c93c03b477b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
