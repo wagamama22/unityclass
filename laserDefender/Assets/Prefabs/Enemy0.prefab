@@ -100,3 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3ad9e37c4e1e5419a128911c8d1f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveConfig: {fileID: 11400000, guid: ee160ada52b349048ba097be3aaa4a8e, type: 2}
+  enemySpeed: 2
