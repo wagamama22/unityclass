@@ -6,8 +6,8 @@ using System.Collections.Generic;
 public class EnemyPathing : MonoBehaviour
 {
     List<Transform> waypointsList;
-    [SerializeField] WaveConfig waveConfig;
-    [SerializeField] float enemySpeed = 2f;
+    WaveConfig waveConfig;
+    
 
     //index to track the current wapoint:where i want to go next it will show me
     int waypointIndex = 0;
@@ -26,6 +26,12 @@ public class EnemyPathing : MonoBehaviour
     {
         EnemyMove();
     }
+
+    public void SetWaveConfig(WaveConfig waveConfigToset) 
+    {
+        waveConfig = waveConfigToset;
+    }
+
     void EnemyMove() 
     {
         if (waypointIndex < waypointsList.Count) 
@@ -34,7 +40,7 @@ public class EnemyPathing : MonoBehaviour
             var targetPosition = waypointsList[waypointIndex].transform.position;
             //ensure the z axis is 0 for 2d movement
             targetPosition.z = 0f;
-            var movementThisFrame = enemySpeed * Time.deltaTime;
+            var movementThisFrame = waveConfig.GetEnemyMoveSpeed() * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
             //check if the enemy has reached the waypoint
             if (transform.position == targetPosition) 
