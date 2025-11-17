@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6410961074656111461}
   - component: {fileID: 4507143903450667710}
   - component: {fileID: -6923516345242983732}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,4 +188,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44521b74031b7445aa81708f32c881c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 20
+  minimumTimeBetweenShots: 0.2
+  maximumTimeBetweenShots: 3
+  shotCounter: 0
+  laserPrefab: {fileID: 8920745988897149078, guid: 0beca5790773a7c47b9b518e227c761f, type: 3}
+  enemyDeathSound: {fileID: 8300000, guid: ad1f41e8d4b1ec5458de82b3cd980d31, type: 3}
+  enemyDeathSoundVolume: 0.7
+  enemyShootSound: {fileID: 8300000, guid: 3d3513092d5fc1c458c99adfeac20a39, type: 3}
+  enemyShootSoundVolume: 0.434

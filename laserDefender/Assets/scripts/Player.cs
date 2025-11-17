@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxX = 4.32f;
     [SerializeField] private float minY = -8.47f;
     [SerializeField] private float maxY = 8.52f;
+    [SerializeField] int health = 100;
 
     [SerializeField] GameObject laserPrefab;//specified we need a laser prefab
 
@@ -156,6 +157,20 @@ public class Player : MonoBehaviour
             //wait for o.2 seconds before shooting again
             yield return new WaitForSeconds(0.2f);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        DamageDealer dd = collision.gameObject.GetComponent<DamageDealer>();
+        health -= dd.GetDamage();
+        dd.Hit(); //destroy the damage dealer object
+
+        if (health <= 0)
+        {
+            Destroy(gameObject); //enemy dies
+
+        }
+
     }
 
     // Update is called once per frame

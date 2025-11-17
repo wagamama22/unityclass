@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 1235083498729152883}
   - component: {fileID: 7498521509108254601}
   - component: {fileID: 7279166927691401003}
-  m_Layer: 0
+  - component: {fileID: -2076353325164808473}
+  - component: {fileID: -4099803318279959848}
+  m_Layer: 8
   m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,5 +102,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3ad9e37c4e1e5419a128911c8d1f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfig: {fileID: 11400000, guid: 1661e1c7ae417094790264d472adbbf3, type: 2}
-  enemySpeed: 2
+--- !u!60 &-2076353325164808473
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4041194259420927624}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.82, y: 0.84}
+    newSize: {x: 0.82, y: 0.84}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.049999997, y: 0.42}
+      - {x: 0.049999997, y: 0.41}
+      - {x: 0, y: 0.42}
+      - {x: -0.24, y: 0.42}
+      - {x: -0.39, y: 0.38}
+      - {x: -0.41, y: 0.32999998}
+      - {x: -0.41, y: -0.35}
+      - {x: -0.21, y: -0.42}
+      - {x: 0.26999998, y: -0.42}
+      - {x: 0.41, y: -0.22999999}
+      - {x: 0.41, y: 0.31}
+      - {x: 0.28, y: 0.42}
+  m_UseDelaunayMesh: 0
+--- !u!114 &-4099803318279959848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4041194259420927624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44521b74031b7445aa81708f32c881c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 40
+  minimumTimeBetweenShots: 0.2
+  maximumTimeBetweenShots: 3
+  shotCounter: 0
+  laserPrefab: {fileID: 8920745988897149078, guid: 0beca5790773a7c47b9b518e227c761f, type: 3}
+  enemyDeathSound: {fileID: 8300000, guid: ad1f41e8d4b1ec5458de82b3cd980d31, type: 3}
+  enemyDeathSoundVolume: 0.7
+  enemyShootSound: {fileID: 8300000, guid: 3d3513092d5fc1c458c99adfeac20a39, type: 3}
+  enemyShootSoundVolume: 0.434
