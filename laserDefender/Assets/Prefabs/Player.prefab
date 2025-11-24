@@ -52,7 +52,13 @@ MonoBehaviour:
   minY: -8.47
   maxY: 8.52
   health: 100
+  playerDeathSound: {fileID: 8300000, guid: 7d892bd0845fb4b4dba40b03f45fcfc4, type: 3}
+  playerDeathSoundVolume: 0.7
+  playerShootSound: {fileID: 8300000, guid: b5ab88a59ca9266469c6abc95941022e, type: 3}
+  playerShootSoundVolume: 0.554
   laserPrefab: {fileID: 3683255044032617040, guid: 07717ac88d48ab14e93eaf6a9300df40, type: 3}
+  ecplosionVFX: {fileID: 5943206216075847786, guid: af7a01b7fbe6b384d8274e3f73ff9e31, type: 3}
+  explosionDuration: 1
 --- !u!212 &4589634214976598801
 SpriteRenderer:
   m_ObjectHideFlags: 0

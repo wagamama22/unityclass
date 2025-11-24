@@ -197,3 +197,5 @@ MonoBehaviour:
   enemyDeathSoundVolume: 0.7
   enemyShootSound: {fileID: 8300000, guid: 3d3513092d5fc1c458c99adfeac20a39, type: 3}
   enemyShootSoundVolume: 0.434
+  ecplosionVFX: {fileID: 5943206216075847786, guid: af7a01b7fbe6b384d8274e3f73ff9e31, type: 3}
+  explosionDuration: 1

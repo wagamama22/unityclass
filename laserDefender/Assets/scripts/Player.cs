@@ -13,7 +13,16 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxY = 8.52f;
     [SerializeField] int health = 100;
 
+    [SerializeField] AudioClip playerDeathSound;
+    [SerializeField][Range(0, 1)] float playerDeathSoundVolume = 0.7f;
+
+    [SerializeField] AudioClip playerShootSound;
+    [SerializeField][Range(0, 1)] float playerShootSoundVolume = 0.25f;
+
     [SerializeField] GameObject laserPrefab;//specified we need a laser prefab
+
+    [SerializeField] GameObject ecplosionVFX;
+    [SerializeField] float explosionDuration = 1f;
 
     //create a variable of coroutine of type ienumerator
     IEnumerator shootingCoroutine;
@@ -154,6 +163,9 @@ public class Player : MonoBehaviour
             GameObject laser = Instantiate(laserPrefab, playerPosition, Quaternion.identity); //save to a variable of gameobject
             laser.GetComponent<Rigidbody2D>().linearVelocityY = 10f;
 
+            //play shooting sound
+            AudioSource.PlayClipAtPoint(playerShootSound, Camera.main.transform.position, playerShootSoundVolume);
+
             //wait for o.2 seconds before shooting again
             yield return new WaitForSeconds(0.2f);
         }
@@ -161,13 +173,22 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //read the damage dealer component from the colliding object
         DamageDealer dd = collision.gameObject.GetComponent<DamageDealer>();
         health -= dd.GetDamage();
         dd.Hit(); //destroy the damage dealer object
 
         if (health <= 0)
         {
-            Destroy(gameObject); //enemy dies
+
+            //play death sound
+            AudioSource.PlayClipAtPoint(playerDeathSound, Camera.main.transform.position, playerDeathSoundVolume);
+
+            //instantiate explosion effect
+            GameObject explosion = Instantiate(ecplosionVFX, transform.position, Quaternion.identity);
+            Destroy(explosion, explosionDuration);//destroy explosion effect after duration
+
+            Destroy(gameObject); //player dies
 
         }
 

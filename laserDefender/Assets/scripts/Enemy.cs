@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] AudioClip enemyShootSound;
     [SerializeField][Range(0, 1)] float enemyShootSoundVolume = 0.25f;
+    [SerializeField] GameObject ecplosionVFX;
+    [SerializeField] float explosionDuration = 1f;
 
 
 
@@ -28,9 +30,13 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0) 
         {
-            Destroy(gameObject); //enemy dies
             //play death sound
             AudioSource.PlayClipAtPoint(enemyDeathSound, Camera.main.transform.position, enemyDeathSoundVolume);
+            //instantiate explosion effect
+            GameObject explosion = Instantiate(ecplosionVFX, transform.position,Quaternion.identity);
+            Destroy(explosion, explosionDuration);//destroy explosion effect after duration
+            Destroy(gameObject); //enemy dies
+            
 
 
         }
