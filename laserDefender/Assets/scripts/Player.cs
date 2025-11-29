@@ -190,6 +190,9 @@ public class Player : MonoBehaviour
 
             Destroy(gameObject); //player dies
 
+            //load game ver scene by finding the first one by level type
+            FindFirstObjectByType<Level>().LoadGameOver();
+
         }
 
     }
